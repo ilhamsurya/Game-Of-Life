@@ -12,11 +12,13 @@ public class Cell {
         ALIVE, DEAD
     }
     public LifeState GetNextState(int n){
-        if (n > 1) {
+        if (n > 1 && n <= 3) {
             return LifeState.ALIVE;
-        }else{
+        }else if (n > 3){
             return LifeState.DEAD;
         }
-
+        else{
+            return LifeState.DEAD;
+        }
     }
 }
