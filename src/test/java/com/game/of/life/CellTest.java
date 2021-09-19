@@ -12,5 +12,8 @@ public class CellTest {
         Cell.LifeState current = newCell.GetNextState(1);
         assertEquals(Cell.LifeState.DEAD, current);
     }
+    @Test
+    public void ShouldDieWithZeroNeighbor(){
 
+    }
 }
