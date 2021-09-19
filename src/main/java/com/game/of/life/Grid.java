@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+import static com.game.of.life.Game.printState;
 import static com.game.of.life.GameOfLife.*;
 
 public class Grid {
@@ -17,5 +18,32 @@ public class Grid {
         return gridSize;
     }
 
+    public static void makeRandomGrid(boolean[][] w, int aliveCnt) {
+        int m = w.length;
+        int n = w[0].length;
+        // set all cells empty
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                w[i][j] = DEAD;
+            }
+        }
+        // pick aliveCnt random cells to set empty
+        ArrayList<Integer> slots = new ArrayList<Integer>();
+        for (int i = 0; i < m * n; i++) {
+            slots.add(i);
+        }
+        Collections.shuffle(slots);
+        int row, col, idx;
+        for (int i = 0; i < aliveCnt; i++) {
+            idx = slots.get(i);
+            row = idx / m;
+            col = idx % n;
+            w[row][col] = ALIVE;
+        }
+        System.out.println("This is your grid:");
+        printState(w);
+        System.out.println("An X is an alive cell and a . is a dead cell.");
+
+    }
 
 }
