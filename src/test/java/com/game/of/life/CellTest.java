@@ -14,6 +14,14 @@ public class CellTest {
     }
     @Test
     public void ShouldDieWithZeroNeighbor(){
+        Cell newCell = new Cell(Cell.LifeState.ALIVE);
+        Cell.LifeState current = newCell.GetNextState(0);
+        assertEquals(Cell.LifeState.DEAD, current);
+    }
+
+    @Test
+    //Second Rule Any live cell with two or three live neighbours lives on to the next generation.
+    public void ShouldLiveOnWithWwoNeighbor(){
 
     }
 }
