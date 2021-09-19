@@ -11,7 +11,12 @@ public class Cell {
     public enum LifeState{
         ALIVE, DEAD
     }
-    public LifeState GetNextState(int i){
-        return LifeState.DEAD;
+    public LifeState GetNextState(int n){
+        if (n > 1) {
+            return LifeState.ALIVE;
+        }else{
+            return LifeState.DEAD;
+        }
+
     }
 }
