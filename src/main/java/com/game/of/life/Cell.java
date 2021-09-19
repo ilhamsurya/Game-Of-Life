@@ -8,8 +8,10 @@ public class Cell {
         this.state = state;
 
     }
-
     public enum LifeState{
         ALIVE, DEAD
+    }
+    public LifeState GetNextState(int i){
+        return LifeState.DEAD;
     }
 }
