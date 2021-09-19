@@ -38,9 +38,17 @@ public class CellTest {
 
     @Test
     //Third Rule Any live cell with more than three live neighbours dies, as if by overpopulation.
-    public void ShouldDieOnWithFourNeighbor(){
+    public void ShouldDieWithFourNeighbor(){
         Cell newCell = new Cell(Cell.LifeState.ALIVE);
         Cell.LifeState current = newCell.GetNextState(4);
         assertEquals(Cell.LifeState.DEAD, current);
+    }
+
+    @Test
+    //Fourth Rule Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+    public void ShouldReproduceWithExactThreeNeighbor(){
+        Cell newCell = new Cell(Cell.LifeState.DEAD);
+        Cell.LifeState current = newCell.GetNextState(3);
+        assertEquals(Cell.LifeState.ALIVE, current);
     }
 }
