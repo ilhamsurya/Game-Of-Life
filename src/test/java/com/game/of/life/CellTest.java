@@ -22,6 +22,8 @@ public class CellTest {
     @Test
     //Second Rule Any live cell with two or three live neighbours lives on to the next generation.
     public void ShouldLiveOnWithWwoNeighbor(){
-
+        Cell newCell = new Cell(Cell.LifeState.ALIVE);
+        Cell.LifeState current = newCell.GetNextState(2);
+        assertEquals(Cell.LifeState.ALIVE, current);
     }
 }
