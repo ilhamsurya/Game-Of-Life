@@ -33,9 +33,9 @@ public class Grid {
             slots.add(i);
         }
         Collections.shuffle(slots);
-        int row, col, idx;
+        int row, col;
         for (int i = 0; i < aliveCnt; i++) {
-            idx = slots.get(i);
+            int idx = slots.get(i);
             row = idx / m;
             col = idx % n;
             w[row][col] = ALIVE;

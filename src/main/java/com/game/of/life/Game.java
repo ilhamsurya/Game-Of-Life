@@ -53,10 +53,14 @@ public class Game {
         for (int i = 1; i < wOld.length - 1; i++) {
             for (int j = 1; j < wOld[i].length - 1; j++) {
                 neighborCount = neighbors(i, j, wOld);
+                // Rules 4: Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
                 if (neighborCount == 3)
                     wNew[i][j] = ALIVE;
+                // Rules 2: Any live cell with two or three live neighbours lives on to the next generation.
                 else if (wOld[i][j] == ALIVE && neighborCount == 2)
                     wNew[i][j] = ALIVE;
+                // Rules 1: Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+                // Rules 3: Any live cell with more than three live neighbours dies, as if by overpopulation.
                 else
                     wNew[i][j] = DEAD;
             }
